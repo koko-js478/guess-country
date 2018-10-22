@@ -56,3 +56,5 @@ docs/_build/
 
 # PyBuilder
 target/
+
+country_guessr/\.idea/
