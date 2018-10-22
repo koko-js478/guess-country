@@ -22,6 +22,7 @@ router = routers.DefaultRouter()
 router.register('country', views.WorldRandomCountryViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('world/', include(router.urls), name='world'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'), name='api-auth'),
+    path('admin/', admin.site.urls, name='admin'),
 ]
