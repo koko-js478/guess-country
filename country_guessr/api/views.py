@@ -12,6 +12,7 @@ class WorldCountriesViewSet(viewsets.ReadOnlyModelViewSet):
     """Returns world countries"""
     queryset = WorldBorder.objects.all()
     serializer_class = WorldCountriesSerializer
+    lookup_field = 'name'
 
     @action(methods=['get'], detail=False)
     def random(self, request, pk=None):
