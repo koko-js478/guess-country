@@ -9,13 +9,20 @@ from django.shortcuts import get_list_or_404
 
 
 class WorldCountriesViewSet(viewsets.ReadOnlyModelViewSet):
-    """Returns world countries"""
+    """Returns world countries
+    get:
+    Returns all countries in paginated format
+    """
     queryset = WorldBorder.objects.all()
     serializer_class = WorldCountriesSerializer
     lookup_field = 'name'
 
     @action(methods=['get'], detail=False)
     def random(self, request, pk=None):
+        """
+        get:
+        Returns a random country
+        """
         random_index = randint(1, self.queryset.count()-1)
         random_country = get_list_or_404(WorldBorder, pk=random_index)
 
