@@ -18,8 +18,8 @@ from django.urls import path, include
 from rest_framework import routers
 from api import views
 
-router = routers.DefaultRouter()
 router.register('country', views.WorldRandomCountryViewSet)
+router = routers.DefaultRouter(trailing_slash=False)
 
 urlpatterns = [
     path('world/', include(router.urls), name='world'),
