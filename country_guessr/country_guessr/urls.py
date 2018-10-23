@@ -18,9 +18,9 @@ from django.urls import path, include
 from rest_framework import routers
 from api import views
 
-router.register('country', views.WorldRandomCountryViewSet)
 router = routers.DefaultRouter(trailing_slash=False)
-router.register('countries', views.WorldCountriesViewSet)
+router.register('country', views.WorldRandomCountryViewSet, base_name='country')
+router.register('countries', views.WorldCountriesViewSet, base_name='countries')
 
 urlpatterns = [
     path('world/', include(router.urls), name='world'),
