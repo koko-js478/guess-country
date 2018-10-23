@@ -20,6 +20,7 @@ from api import views
 
 router.register('country', views.WorldRandomCountryViewSet)
 router = routers.DefaultRouter(trailing_slash=False)
+router.register('countries', views.WorldCountriesViewSet)
 
 urlpatterns = [
     path('world/', include(router.urls), name='world'),
