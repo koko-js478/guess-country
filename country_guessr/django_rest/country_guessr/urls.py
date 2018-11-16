@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 from api import views
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -23,6 +24,9 @@ router.register('countries', views.WorldCountriesViewSet, base_name='countries')
 
 urlpatterns = [
     path('world/', include(router.urls), name='world'),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'), name='api-auth'),
+    path('api-token-verify/', verify_jwt_token),
+    path('api-token-refresh/', refresh_jwt_token),
+    path('api-token-auth/', include('rest_auth.urls')),
+    path('api-token-auth/registration/', include('rest_auth.registration.urls')),
     path('admin/', admin.site.urls, name='admin'),
 ]
