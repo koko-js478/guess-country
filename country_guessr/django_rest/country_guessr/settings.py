@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^7^_wa_@$3m%2ju@z(le0y3gr(a4v-5hiu)k-qg*5x&s&(@1w5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -87,13 +87,24 @@ WSGI_APPLICATION = 'country_guessr.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+#  DATABASES = {
+    #  'default': {
+        #  'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        #  'NAME': 'geo_postgres',
+        #  'USER': 'postgres',
+        #  'PASSWORD': '7czMkdqm[reh4et3nZyzxbrmoaue^+ttwIspt)rd2yxw4_MVhm',
+        #  'HOST': 'geo-postgres.cacn5lkdeyoc.eu-west-1.rds.amazonaws.com',
+        #  'PORT': '5432',
+    #  },
+#  }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'geo_postgres',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '7czMkdqm[reh4et3nZyzxbrmoaue^+ttwIspt)rd2yxw4_MVhm',
-        'HOST': 'geo-postgres.cacn5lkdeyoc.eu-west-1.rds.amazonaws.com',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
         'PORT': '5432',
     },
 }
@@ -153,6 +164,10 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
     'JWT_ALLOW_REFRESH': True,
+}
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'api.serializers.UserDetailsSerializer'
 }
 
 REST_USE_JWT = True
