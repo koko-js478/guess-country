@@ -24,8 +24,8 @@ router.register('countries', views.WorldCountriesViewSet, base_name='countries')
 
 urlpatterns = [
     path('world/', include(router.urls), name='world'),
-    path('api-token-verify/', verify_jwt_token),
-    path('api-token-refresh/', refresh_jwt_token),
+    path('api-token-auth/verify', verify_jwt_token),
+    path('api-token-auth/refresh', refresh_jwt_token),
     path('api-token-auth/', include('rest_auth.urls')),
     path('api-token-auth/registration/', include('rest_auth.registration.urls')),
     path('admin/', admin.site.urls, name='admin'),
