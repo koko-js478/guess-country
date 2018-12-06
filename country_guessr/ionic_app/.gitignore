@@ -37,3 +37,5 @@ UserInterfaceState.xcuserstate
 package.json
 package-lock.json
 typings/
+resources/android/*
+resources/ios/*
