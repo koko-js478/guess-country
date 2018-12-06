@@ -58,3 +58,7 @@ docs/_build/
 target/
 
 country_guessr/\.idea/
+
+country_guessr/cordova_app/*
+
+country_guessr/django_rest/world/migrations/0001_initial\.py

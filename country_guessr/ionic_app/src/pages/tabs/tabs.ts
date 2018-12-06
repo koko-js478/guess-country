@@ -1,3 +1,4 @@
+import { SettingsPage } from './../settings/settings';
 import { Component } from '@angular/core';
 
 import { MapPage } from '../map/map';
@@ -8,6 +9,7 @@ import { MapPage } from '../map/map';
 export class TabsPage {
 
   tab1Root = MapPage;
+  tab2Root = SettingsPage;
 
   constructor() {
 
