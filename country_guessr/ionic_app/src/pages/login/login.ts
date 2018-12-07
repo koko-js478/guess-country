@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { BackendProvider } from './../../providers/backend/backend';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,7 +21,8 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private api: BackendProvider) {
   }
 
   loginButtonAction() {
