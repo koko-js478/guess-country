@@ -18,7 +18,9 @@ export class LoginPage {
   username: string = "";
   password: string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private alertCtrl: AlertController) {
   }
 
   loginButtonAction() {
