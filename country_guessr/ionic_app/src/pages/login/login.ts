@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { BackendProvider } from './../../providers/backend/backend';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the LoginPage page.
@@ -39,7 +40,14 @@ export class LoginPage {
       alert.present();
     } else {
       this.makeLoginRequest().then(data => {
+        this.user.token = data["token"];
+        this.user.email = data["user"]["email"];
+        this.user.first_name = data["user"]["first_name"];
+        this.user.last_name = data["user"]["last_name"];
+        this.user.points = data["user"]["points"];
+        this.user.username = data["user"]["username"];
 
+        this.navCtrl.push(TabsPage);
       });
     }
   }
@@ -57,6 +65,7 @@ export class LoginPage {
           buttons: ['Dismiss']
         });
         alert.present();
+        console.log(err);
       });
     });
   }
