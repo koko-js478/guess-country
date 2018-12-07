@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -18,11 +18,18 @@ export class LoginPage {
   username: string = "";
   password: string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+  loginButtonAction() {
+    if (this.username.length == 0 || this.password.length == 0) {
+      let alert = this.alertCtrl.create({
+        title: 'Empty fields',
+        subTitle: 'Please ensure you fill in all of the fields.',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+    }
 
+  }
 }
