@@ -9,6 +9,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserProvider {
 
+  token: string;
+
+  email: string;
+  first_name: string;
+  last_name: string;
+  username: string;
+  password: string;
+  points: number;
+
+
   constructor() {
   }
 
