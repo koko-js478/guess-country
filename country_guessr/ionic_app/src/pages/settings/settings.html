@@ -10,6 +10,7 @@
 
   <h5 ion-text class="welcome_user">Welcome {{ user.username }}.</h5>
 
-  <button ion-button color="light" round full class="logout_button">logout</button>
+  <button ion-button color="light" round full class="logout_button" (click)='logoutButtonAction();'>
+    logout</button>
 
 </ion-content>
