@@ -101,6 +101,16 @@ export class MapPage {
     this.map.panTo(new leaflet.LatLng(lat, lon));
   }
 
+  displayMarker(lat, lon) {
+    if (this.currentMarker !== null) { this.map.removeLayer(this.currentMarker); }
+    this.currentMarker = new leaflet.Marker([lat, lon]);
+    this.currentMarker.addTo(this.map);
+  }
+
+  displayCountry(geoJSON) {
+    if (this.currentCountryLayer !== null) { this.map.removeLayer(this.currentCountryLayer) };
+    this.currentCountryLayer = leaflet.geoJSON(geoJSON, {style: this.polystyle()});
+    this.currentCountryLayer.addTo(this.map);
   }
 
 }
