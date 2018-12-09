@@ -17,6 +17,8 @@ export class BackendProvider {
   register_url: string = this.url + "register/";
 
   world_url: string = this.url + "world/";
+  world_countries_url = this.world_url + "countries/";
+  world_countries_random_url = this.world_countries_url + "random";
 
   verify_url: string = this.url + "verify/";
   refresh_url: string = this.url + "refresh/";
