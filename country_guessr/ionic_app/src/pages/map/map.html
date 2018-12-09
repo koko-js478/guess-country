@@ -9,4 +9,15 @@
 
   <div id="map" class="map"></div>
 
+  <ion-item>
+    <ion-label color="light" floating>Answer</ion-label>
+    <ion-input type="text" [(ngModel)]="currentGuess"></ion-input>
+  </ion-item>
+
+  <h4 class="points_header">Points</h4>
+  <p class="number_of_points">{{ this.user.points }}</p>
+
+  <button ion-button color="light" round full class="submit_button" (click)='submitAnswer();'>
+    Submit</button>
+
 </ion-content>
