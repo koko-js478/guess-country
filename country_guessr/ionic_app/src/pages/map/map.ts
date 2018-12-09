@@ -34,6 +34,26 @@ export class MapPage {
               public alertCtrl: AlertController,
               public user: UserProvider) {}
 
+  ionViewDidEnter() {
+    this.loadmap();
+  }
+
+  loadmap() {
+    if (!this.mapIsLoaded) {
+      this.map = leaflet.map("map", {
+        center: [20.0, 5.0],
+        minZoom: 1,
+        zoom: 3,
+        maxZoom: 10,
+      });
+      leaflet.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo( this.map );
+      this.refreshRandomCountry();
+      this.mapIsLoaded = true;
+    }
+  }
+
   }
 
 }
