@@ -54,6 +54,53 @@ export class MapPage {
     }
   }
 
+
+  getCountryName(request) {
+    try {
+      return request["results"]["features"][0]["properties"]["name"];
+    } catch (TypeError) {
+      return null;
+    }
+  }
+
+  getCountryLon(request) {
+    try {
+      return request["results"]["features"][0]["properties"]["lon"];
+    } catch (TypeError) {
+      return null;
+    }
+  }
+
+  getCountryLat(request) {
+    try {
+      return request["results"]["features"][0]["properties"]["lat"];
+    } catch (TypeError) {
+      return null;
+    }
+  }
+
+  getCountryGeometry(request) {
+    try {
+      return request["results"]["features"][0]["geometry"];
+    } catch (TypeError) {
+      return null;
+    }
+  }
+
+  polystyle() {
+    return {
+      fillColor: 'red',
+      weight: 5,
+      opacity: 1,
+      color: 'red',
+      fillOpacity: 1
+    }
+  }
+
+  mapPanTo(lat, lon) {
+    this.map.panTo(new leaflet.LatLng(lat, lon));
+  }
+
   }
 
 }
