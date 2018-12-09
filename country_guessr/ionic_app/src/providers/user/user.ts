@@ -1,3 +1,4 @@
+import { BackendProvider } from './../backend/backend';
 import { Injectable } from '@angular/core';
 
 /*
@@ -19,7 +20,8 @@ export class UserProvider {
   points: number;
 
 
-  constructor() {
+  constructor(public api: BackendProvider) {
+  }
   }
 
 }
