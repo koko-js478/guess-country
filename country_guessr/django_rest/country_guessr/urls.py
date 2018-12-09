@@ -27,6 +27,6 @@ urlpatterns = [
     path('api-token-auth/', include('rest_auth.urls')),
     path('api-token-auth/verify', verify_jwt_token),
     path('api-token-auth/refresh', refresh_jwt_token),
-    path('api-token-auth/register/', include('rest_auth.registration.urls')),
+    path('api-token-auth/register', include('rest_auth.registration.urls')),
     path('admin/', admin.site.urls, name='admin'),
 ]
