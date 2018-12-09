@@ -20,7 +20,11 @@ import leaflet from "leaflet";
 export class MapPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private user: UserProvider) {
+              public http: HttpClient,
+              public api: BackendProvider,
+              public alertCtrl: AlertController,
+              public user: UserProvider) {}
+
   }
 
 }
