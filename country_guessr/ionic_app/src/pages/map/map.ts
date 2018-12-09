@@ -54,6 +54,42 @@ export class MapPage {
     }
   }
 
+  submitAnswer() {
+    let message = "Incorrect.";
+    console.log(this.currentGuess);
+    console.log(this.currentCountryname);
+    if (this.currentGuess !== null && (this.currentGuess === this.currentCountryname)) {
+      message = "Correct.";
+      this.user.incrementPoints();
+      this.refreshRandomCountry();
+    }
+    let alert = this.alertCtrl.create({
+      title: message,
+    });
+    alert.present();
+  }
+
+  refreshRandomCountry() {
+    new Promise(resolve => {
+      this.http.get(this.api.world_countries_random_url).subscribe(data => {
+        resolve(data);
+      }, err => {
+        let alert = this.alertCtrl.create({
+          title: 'Unable to make request.',
+          subTitle: 'You do not have a connection to the internet or the server is down.',
+          buttons: ['Dismiss']
+        });
+        alert.present();
+      });
+    }).then(data => {
+      this.currentCountryname = this.getCountryName(data);
+      console.log(this.currentCountryname);
+
+      this.displayCountry(this.getCountryGeometry(data));
+      this.displayMarker(this.getCountryLat(data), this.getCountryLon(data));
+      this.mapPanTo(this.getCountryLat(data), this.getCountryLon(data));
+    });
+  }
 
   getCountryName(request) {
     try {
