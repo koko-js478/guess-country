@@ -19,6 +19,15 @@ import leaflet from "leaflet";
 })
 export class MapPage {
 
+  map: leaflet.Map;
+  mapIsLoaded: boolean = false;
+
+  currentMarker: leaflet.Marker = null;
+  currentCountryname: string = null;
+  currentCountryLayer: leaflet.GeoJSON = null;
+
+  currentGuess: string = null;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public http: HttpClient,
               public api: BackendProvider,
