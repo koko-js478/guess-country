@@ -20,6 +20,10 @@ export class BackendProvider {
   world_countries_url = this.world_url + "countries/";
   world_countries_random_url = this.world_countries_url + "random";
 
+  users_url: string = this.url + "users/";
+  users_points_url: string = this.users_url + "points/";
+  users_points_inc_url: string = this.users_points_url + "increment/";
+
   verify_url: string = this.url + "verify/";
   refresh_url: string = this.url + "refresh/";
 
