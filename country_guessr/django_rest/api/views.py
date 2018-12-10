@@ -13,6 +13,7 @@ class WorldCountriesViewSet(viewsets.ReadOnlyModelViewSet):
     get:
     Returns all countries in paginated format
     """
+    permission_classes = (AllowAny,)
     queryset = WorldBorder.objects.all()
     serializer_class = WorldCountriesSerializer
     lookup_field = 'name'
