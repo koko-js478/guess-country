@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { AlertController } from 'ionic-angular';
 import { BackendProvider } from './../backend/backend';
 import { Injectable } from '@angular/core';
 
@@ -20,7 +22,9 @@ export class UserProvider {
   points: number;
 
 
-  constructor(public api: BackendProvider) {
+  constructor(public api: BackendProvider,
+              public alertCtrl: AlertController,
+              public http: HttpClient) {
   }
   }
 
