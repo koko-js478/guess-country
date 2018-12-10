@@ -24,6 +24,17 @@ export class RegisterPage {
               public alertCtrl: AlertController) {
   }
 
+
+  isValidCredentials() {
+    if (this.username == null || this.username.length === 0 ||
+        this.email == null || this.email.length === 0 ||
+        this.password_one == null || this.password_one.length === 0 ||
+        this.password_two == null || this.password_two.length === 0 ||
+        this.password_one !== this.password_two)
+    {
+      return false;
+    }
+    return true;
   }
 
   constructRegisterPOSTbody() {
