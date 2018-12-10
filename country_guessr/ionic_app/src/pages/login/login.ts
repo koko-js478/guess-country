@@ -1,3 +1,4 @@
+import { RegisterPage } from './../register/register';
 import { UserProvider } from './../../providers/user/user';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -53,6 +54,10 @@ export class LoginPage {
         this.navCtrl.push(TabsPage);
       });
     }
+  }
+
+  registerButtonAction() {
+    this.navCtrl.push(RegisterPage);
   }
 
   makeLoginRequest() {
