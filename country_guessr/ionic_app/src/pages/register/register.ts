@@ -17,6 +17,11 @@ import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic
 })
 export class RegisterPage {
 
+  username: string = null;
+  email: string = null;
+  password_one: string = null;
+  password_two: string = null;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public app: App,
               public http: HttpClient,
