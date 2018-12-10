@@ -14,7 +14,7 @@ export class BackendProvider {
   auth_url: string = this.url + "api-token-auth/";
   login_url: string = this.auth_url + "login/";
   logout_url: string = this.auth_url + "logout/";
-  register_url: string = this.url + "register/";
+  register_url: string = this.auth_url + "register";
 
   world_url: string = this.url + "world/";
   world_countries_url = this.world_url + "countries/";
