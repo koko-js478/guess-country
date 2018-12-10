@@ -26,6 +26,22 @@ export class UserProvider {
               public alertCtrl: AlertController,
               public http: HttpClient) {
   }
+
+  incrementPoints() {
+    new Promise(resolve => {
+      this.http.patch(this.api.users_points_inc_url,
+                     {"token": this.token}).subscribe(data => {
+        resolve(data);
+      }, err => {
+        let alert = this.alertCtrl.create({
+          title: 'Unable to send score to server.',
+          subTitle: 'Your score will not be recorded on the server and you might lose your progress.',
+          buttons: ['Dismiss']
+        });
+        alert.present();
+      });
+    });
+    this.points++;
   }
 
 }
