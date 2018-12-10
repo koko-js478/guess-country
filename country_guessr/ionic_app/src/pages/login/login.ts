@@ -47,6 +47,10 @@ export class LoginPage {
         this.user.points = data["user"]["points"];
         this.user.username = data["user"]["username"];
 
+        //  Clear input after successful login
+        this.username = null;
+        this.password = null;
+
         this.navCtrl.push(TabsPage);
       });
     }
