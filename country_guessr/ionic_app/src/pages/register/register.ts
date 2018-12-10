@@ -26,8 +26,13 @@ export class RegisterPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+  constructRegisterPOSTbody() {
+    return {
+      "username": this.username,
+      "email": this.email,
+      "password1": this.password_one,
+      "password2": this.password_two, 
+    }
   }
 
 }
