@@ -29,6 +29,45 @@ export class RegisterPage {
               public alertCtrl: AlertController) {
   }
 
+  registerButtonAction() {
+    if (this.isValidCredentials()) {
+      new Promise(resolve => {
+          this.http.post(this.api.register_url,
+                         this.constructRegisterPOSTbody()).subscribe(data => {
+            resolve(data);
+          }, err => {
+            let alert = this.alertCtrl.create({
+              title: 'Registration Unsuccessful.',
+              subTitle: 'Please make sure to try again or try another username/email.',
+              buttons: ['Dismiss']
+            });
+            alert.present();
+          });
+        }).then(data => {
+          let alert = this.alertCtrl.create({
+            title: 'Registration Successful.',
+            subTitle: 'You will now be redirected to the login page.',
+          });
+          alert.present();
+
+          this.app.navPop();
+      }, err => {
+        let alert = this.alertCtrl.create({
+            title: 'Registration Unsuccessful.',
+            subTitle: 'Please make sure to try again or try another username/email.',
+            buttons: ['Dismiss']
+        });
+        alert.present();
+      });
+    } else {
+      let alert = this.alertCtrl.create({
+        title: 'Invalid values.',
+        subTitle: 'Please ensure you have filled out all fields and your passwords match.',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+    }
+  }
 
   isValidCredentials() {
     if (this.username == null || this.username.length === 0 ||
