@@ -12,6 +12,30 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding text-center>
+
+  <ion-list>
+    <ion-item>
+      <ion-label color="light" floating>Username</ion-label>
+      <ion-input clearInput type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="light" floating>Email</ion-label>
+      <ion-input clearInput type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="light" floating>Password</ion-label>
+      <ion-input clearInput type="password" [(ngModel)]="password_one"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="light" floating>Repeat Password</ion-label>
+      <ion-input clearInput type="password" [(ngModel)]="password_two"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full round color="light" class="text-center register_button" (click)='registerButtonAction();'>register</button>
 
 </ion-content>
