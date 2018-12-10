@@ -55,16 +55,13 @@ export class MapPage {
   }
 
   submitAnswer() {
-    let message = "Incorrect.";
-    console.log(this.currentGuess);
-    console.log(this.currentCountryname);
     if (this.currentGuess !== null && (this.currentGuess === this.currentCountryname)) {
-      message = "Correct.";
       this.user.incrementPoints();
       this.refreshRandomCountry();
+      return;
     }
     let alert = this.alertCtrl.create({
-      title: message,
+      title: "Incorrect",
     });
     alert.present();
   }
