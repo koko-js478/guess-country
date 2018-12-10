@@ -123,7 +123,7 @@ export class MapPage {
   polystyle() {
     return {
       fillColor: 'red',
-      weight: 5,
+      weight: 15,
       opacity: 1,
       color: 'red',
       fillOpacity: 1
